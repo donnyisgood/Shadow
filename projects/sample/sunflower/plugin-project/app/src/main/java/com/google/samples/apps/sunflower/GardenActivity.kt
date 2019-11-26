@@ -18,11 +18,10 @@ package com.google.samples.apps.sunflower
 
 import android.view.MenuItem
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
 import com.google.samples.apps.sunflower.databinding.ActivityGardenBinding
 
-class GardenActivity : AppCompatActivity() {
+class GardenActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
