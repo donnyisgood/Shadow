@@ -47,3 +47,9 @@ afterEvaluate {
         }
     }
 }
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+
+    api "com.facebook.fresco:fresco:2.1.0"
+}

@@ -23,6 +23,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.GenericDraweeView;
+import com.tencent.shadow.sample.host.lib.FrescoImageView;
 import com.tencent.shadow.sample.plugin.app.lib.R;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity;
 
@@ -46,5 +50,10 @@ public class SplashActivity extends Activity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
             }
         });
+
+        GenericDraweeView draweeView = new FrescoImageView(this,
+                new GenericDraweeHierarchyBuilder(getResources())
+                        .setRoundingParams(RoundingParams.fromCornersRadius(0))
+                        .build());
     }
 }

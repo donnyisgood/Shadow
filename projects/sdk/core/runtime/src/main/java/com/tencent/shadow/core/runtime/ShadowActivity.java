@@ -123,32 +123,6 @@ public abstract class ShadowActivity extends PluginActivity {
         return view;
     }
 
-    final private Map<ShadowActivityLifecycleCallbacks,
-            Application.ActivityLifecycleCallbacks>
-            mActivityLifecycleCallbacksMap = new HashMap<>();
-
-    public void registerActivityLifecycleCallbacks(
-            ShadowActivityLifecycleCallbacks callback) {
-        synchronized (mActivityLifecycleCallbacksMap) {
-            final ShadowActivityLifecycleCallbacks.Wrapper wrapper
-                    = new ShadowActivityLifecycleCallbacks.Wrapper(callback, this);
-            mActivityLifecycleCallbacksMap.put(callback, wrapper);
-            hostActivityDelegator.registerActivityLifecycleCallbacks(wrapper);
-        }
-    }
-
-    public void unregisterActivityLifecycleCallbacks(
-            ShadowActivityLifecycleCallbacks callback) {
-        synchronized (mActivityLifecycleCallbacksMap) {
-            final Application.ActivityLifecycleCallbacks activityLifecycleCallbacks
-                    = mActivityLifecycleCallbacksMap.get(callback);
-            if (activityLifecycleCallbacks != null) {
-                hostActivityDelegator.unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
-                mActivityLifecycleCallbacksMap.remove(callback);
-            }
-        }
-    }
-
     @Override
     public void startIntentSenderFromChild(ShadowActivity arg0, IntentSender arg1, int arg2, Intent arg3, int arg4, int arg5, int arg6) throws IntentSender.SendIntentException {
         throw new UnsupportedOperationException("Unsupported Yet");
